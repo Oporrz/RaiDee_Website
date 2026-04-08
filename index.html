@@ -58,6 +58,9 @@
         <nav class="nav-main" id="nav-main" aria-label="หลัก">
           <a href="#top" data-i18n="navHome">หน้าแรก</a>
           <a href="#features" data-i18n="navFeaturesNav">ฟีเจอร์</a>
+          <a href="#farmers-market" data-i18n="navMarket"
+            >ตลาดนัดเกษตรกร · Marketplace</a
+          >
           <a href="#story" data-i18n="navAbout">เกี่ยวกับเรา</a>
           <a href="#contact" data-i18n="navContact">ติดต่อ</a>
         </nav>
@@ -67,9 +70,10 @@
             <span data-i18n="langCurrent">ไทย</span>
           </button>
           <a
-            class="btn-header-download"
+            class="btn-header-download js-apk-site"
             id="apk-link-header"
-            href="#download-apk"
+            href="downloads/raidee.apk"
+            download="raidee.apk"
             data-i18n="headerDownload"
             >ดาวน์โหลด</a
           >
@@ -78,56 +82,152 @@
     </header>
 
     <main>
-      <section class="hero" id="top">
-        <div class="hero-overlay" aria-hidden="true"></div>
-        <div class="hero-inner">
-          <div class="hero-copy">
-            <img
-              class="hero-logo-mark"
-              src="assets/images/Raidee_logo.png"
-              alt=""
-              width="200"
-              height="56"
-              data-i18n-alt="logoAlt"
-            />
-            <p class="hero-tagline" data-i18n="heroTagline"></p>
-            <h1 class="hero-title" data-i18n="heroTitle">ไร่ดี</h1>
-            <p class="hero-lead" data-i18n="heroSubtitle"></p>
-            <div class="hero-actions">
-              <a class="btn-hero-primary" id="apk-link" href="#download-apk">
-                <span class="btn-ico" aria-hidden="true">⬇</span>
-                <span data-i18n="heroDownloadShort">ดาวน์โหลดเลย</span>
-              </a>
-              <a
-                class="btn-hero-outline"
-                href="#features"
-                data-i18n="heroLearnMore"
-                >เรียนรู้เพิ่มเติม</a
-              >
+      <section
+        class="hero-carousel"
+        id="top"
+        aria-roledescription="carousel"
+        aria-label="แบนเนอร์หน้าแรก"
+      >
+        <div class="hero-carousel-viewport">
+          <div class="hero-carousel-track" id="hero-carousel-track">
+            <div
+              class="hero-slide hero-slide--home"
+              id="hero-slide-0"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="1 / 2"
+              aria-hidden="false"
+            >
+              <div class="hero-overlay" aria-hidden="true"></div>
+              <div class="hero-inner">
+                <div class="hero-copy">
+                  <img
+                    class="hero-logo-mark"
+                    src="assets/images/Raidee_logo.png"
+                    alt=""
+                    width="200"
+                    height="56"
+                    data-i18n-alt="logoAlt"
+                  />
+                  <p class="hero-tagline" data-i18n="heroTagline"></p>
+                  <h1 class="hero-title" data-i18n="heroTitle">ไร่ดี</h1>
+                  <p class="hero-lead" data-i18n="heroSubtitle"></p>
+                  <div class="hero-actions">
+                    <a
+                      class="btn-hero-primary js-apk-site"
+                      id="apk-link"
+                      href="downloads/raidee.apk"
+                      download="raidee.apk"
+                    >
+                      <span class="btn-ico" aria-hidden="true">⬇</span>
+                      <span data-i18n="heroDownloadShort">ดาวน์โหลดเลย</span>
+                    </a>
+                    <a
+                      class="btn-hero-outline"
+                      href="#features"
+                      data-i18n="heroLearnMore"
+                      >เรียนรู้เพิ่มเติม</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="hero-slide hero-slide--market"
+              id="hero-slide-1"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="2 / 2"
+              aria-hidden="true"
+            >
+              <div class="hero-overlay" aria-hidden="true"></div>
+              <div class="hero-inner">
+                <div class="hero-copy">
+                  <img
+                    class="hero-logo-mark"
+                    src="assets/images/Raidee_logo.png"
+                    alt=""
+                    width="200"
+                    height="56"
+                    data-i18n-alt="logoAlt"
+                  />
+                  <p class="hero-tagline" data-i18n="heroTagline"></p>
+                  <h2 class="hero-title" data-i18n="heroTitle">ไร่ดี</h2>
+                  <p class="hero-lead" data-i18n="heroSubtitle"></p>
+                  <div class="hero-actions">
+                    <a
+                      class="btn-hero-primary js-apk-site"
+                      href="downloads/raidee.apk"
+                      download="raidee.apk"
+                    >
+                      <span class="btn-ico" aria-hidden="true">⬇</span>
+                      <span data-i18n="heroDownloadShort">ดาวน์โหลดเลย</span>
+                    </a>
+                    <a
+                      class="btn-hero-outline"
+                      href="#features"
+                      data-i18n="heroLearnMore"
+                      >เรียนรู้เพิ่มเติม</a
+                    >
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="hero-visual">
-            <img
-              src="assets/images/raidee_mascots_duo.png"
-              alt=""
-              class="hero-mascots"
-              width="520"
-              height="auto"
-              data-i18n-alt="mascotsAlt"
-            />
-          </div>
         </div>
-        <a href="#story" class="scroll-hint">
-          <span data-i18n="heroScrollHint">เลื่อนลง</span>
-          <span class="scroll-arrow" aria-hidden="true">↓</span>
-        </a>
+        <button
+          type="button"
+          class="hero-carousel-btn hero-carousel-btn--prev"
+          id="hero-carousel-prev"
+          aria-controls="hero-slide-0"
+          aria-label="สไลด์ก่อนหน้า"
+        >
+          <span aria-hidden="true">‹</span>
+        </button>
+        <button
+          type="button"
+          class="hero-carousel-btn hero-carousel-btn--next"
+          id="hero-carousel-next"
+          aria-controls="hero-slide-1"
+          aria-label="สไลด์ถัดไป"
+        >
+          <span aria-hidden="true">›</span>
+        </button>
+        <div class="hero-carousel-dots" role="tablist" aria-label="เลือกแบนเนอร์">
+          <button
+            type="button"
+            class="hero-carousel-dot is-active"
+            role="tab"
+            aria-selected="true"
+            aria-label="แบนเนอร์ 1"
+            data-hero-slide="0"
+          ></button>
+          <button
+            type="button"
+            class="hero-carousel-dot"
+            role="tab"
+            aria-selected="false"
+            aria-label="แบนเนอร์ ตลาดนัดเกษตรกร"
+            data-hero-slide="1"
+          ></button>
+        </div>
+        <div class="scroll-hint">
+          <a
+            href="#farmers-market"
+            class="scroll-hint-inner"
+            aria-label="เลื่อนไปยังเนื้อหาถัดไป"
+          >
+            <span data-i18n="heroScrollHint">เลื่อนลง</span>
+            <span class="scroll-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
       </section>
 
       <section class="story-split" id="story">
         <div class="section-inner story-split-inner">
           <div class="story-split-art">
             <img
-              src="assets/images/raidee_mascot_girl.png"
+              src="assets/images/illustration_2.jpg"
               alt=""
               class="story-mascot-img"
               width="380"
@@ -144,7 +244,8 @@
             <a
               class="btn-line-large"
               id="line-link"
-              href="https://line.me/"
+              data-raidee-line
+              href="https://line.me/R/ti/p/@942mipwo"
               target="_blank"
               rel="noopener noreferrer"
               data-i18n="lineCtaLong"
@@ -156,9 +257,16 @@
 
       <section class="features" id="features">
         <div class="section-inner">
-          <p class="section-kicker" data-i18n="featuresKicker"></p>
-          <h2 class="section-title" data-i18n="featuresTitle"></h2>
-          <p class="section-lead" data-i18n="featuresLead"></p>
+          <div class="features-head">
+            <div class="features-head-text">
+              <p class="section-kicker" data-i18n="featuresKicker"></p>
+              <h2 class="section-title" data-i18n="featuresTitle"></h2>
+            </div>
+            <a class="btn-features-screens" href="#ux" data-i18n="featuresScreensCta"
+              >ดูตัวอย่างหน้าตาในแอป</a
+            >
+          </div>
+          <p class="section-lead features-lead-below" data-i18n="featuresLead"></p>
           <div class="feature-grid">
             <article class="feature-card">
               <div class="icon" aria-hidden="true">🌧️</div>
@@ -176,7 +284,7 @@
               <p data-i18n="f3d"></p>
             </article>
             <article class="feature-card">
-              <div class="icon" aria-hidden="true">🏷️</div>
+              <div class="icon" aria-hidden="true">🏪</div>
               <h3 data-i18n="f4t"></h3>
               <p data-i18n="f4d"></p>
             </article>
@@ -190,63 +298,178 @@
               <h3 data-i18n="f6t"></h3>
               <p data-i18n="f6d"></p>
             </article>
+            <article class="feature-card">
+              <div class="icon" aria-hidden="true">🗺️</div>
+              <h3 data-i18n="f7t"></h3>
+              <p data-i18n="f7d"></p>
+            </article>
+            <article class="feature-card">
+              <div class="icon" aria-hidden="true">♻️</div>
+              <h3 data-i18n="f8t"></h3>
+              <p data-i18n="f8d"></p>
+            </article>
+            <article class="feature-card">
+              <div class="icon" aria-hidden="true">📷</div>
+              <h3 data-i18n="f9t"></h3>
+              <p data-i18n="f9d"></p>
+            </article>
+            <article class="feature-card">
+              <div class="icon" aria-hidden="true">💰</div>
+              <h3 data-i18n="f10t"></h3>
+              <p data-i18n="f10d"></p>
+            </article>
+            <article class="feature-card">
+              <div class="icon" aria-hidden="true">🏡</div>
+              <h3 data-i18n="f11t"></h3>
+              <p data-i18n="f11d"></p>
+            </article>
           </div>
+        </div>
+      </section>
+
+      <section class="market-cta" id="farmers-market" aria-labelledby="market-title">
+        <div class="section-inner market-cta-inner">
+          <p class="section-kicker" data-i18n="marketKicker"></p>
+          <h2 class="section-title" id="market-title" data-i18n="marketTitle"></h2>
+          <p class="section-lead market-cta-lead" data-i18n="marketBody"></p>
+          <a
+            class="btn-line-large"
+            id="line-link-market"
+            data-raidee-line
+            href="https://line.me/R/ti/p/@942mipwo"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n="lineCtaLong"
+            >แอดไลน์เพื่อรับข่าวสาร</a
+          >
         </div>
       </section>
 
       <section class="ux-section" id="ux">
         <div class="section-inner">
-          <p class="section-kicker" data-i18n="uxKicker"></p>
-          <h2 class="section-title" data-i18n="uxTitle"></h2>
-          <p class="section-lead" data-i18n="uxIntro"></p>
+          <h2 class="section-title ux-section-title" data-i18n="uxTitle"></h2>
+          <p class="section-lead ux-section-lead" data-i18n="uxIntro"></p>
 
+          <!-- สกรีนจริง: assets/images/ux/ux1-before.jpg … ux4-after.jpg -->
           <div class="ux-grid">
             <div class="ux-pair">
-              <div class="ux-box before">
-                <div class="ux-label" data-i18n="uxLabelBefore"></div>
-                <p data-i18n="ux1Before"></p>
-                <div class="phone-mock">Screenshot</div>
+              <div class="ux-box ux-feature-screen">
+                <h3 class="ux-feature-name" data-i18n="ux1aHead"></h3>
+                <p class="ux-feature-desc" data-i18n="ux1Before"></p>
+                <div class="phone-mock">
+                  <img
+                    src="assets/images/ux/ux1-before.jpg"
+                    alt=""
+                    width="360"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </div>
-              <div class="ux-box after">
-                <div class="ux-label" data-i18n="uxLabelAfter"></div>
-                <p data-i18n="ux1After"></p>
-                <div class="phone-mock">Screenshot</div>
-              </div>
-            </div>
-            <div class="ux-pair">
-              <div class="ux-box before">
-                <div class="ux-label" data-i18n="uxLabelBefore"></div>
-                <p data-i18n="ux2Before"></p>
-                <div class="phone-mock">Screenshot</div>
-              </div>
-              <div class="ux-box after">
-                <div class="ux-label" data-i18n="uxLabelAfter"></div>
-                <p data-i18n="ux2After"></p>
-                <div class="phone-mock">Screenshot</div>
-              </div>
-            </div>
-            <div class="ux-pair">
-              <div class="ux-box before">
-                <div class="ux-label" data-i18n="uxLabelBefore"></div>
-                <p data-i18n="ux3Before"></p>
-                <div class="phone-mock">Screenshot</div>
-              </div>
-              <div class="ux-box after">
-                <div class="ux-label" data-i18n="uxLabelAfter"></div>
-                <p data-i18n="ux3After"></p>
-                <div class="phone-mock">Screenshot</div>
+              <div class="ux-box ux-feature-screen">
+                <h3 class="ux-feature-name" data-i18n="ux1bHead"></h3>
+                <p class="ux-feature-desc" data-i18n="ux1After"></p>
+                <div class="phone-mock">
+                  <img
+                    src="assets/images/ux/ux1-after.jpg"
+                    alt=""
+                    width="360"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </div>
             </div>
             <div class="ux-pair">
-              <div class="ux-box before">
-                <div class="ux-label" data-i18n="uxLabelBefore"></div>
-                <p data-i18n="ux4Before"></p>
-                <div class="phone-mock">Screenshot</div>
+              <div class="ux-box ux-feature-screen">
+                <h3 class="ux-feature-name" data-i18n="ux2aHead"></h3>
+                <p class="ux-feature-desc" data-i18n="ux2Before"></p>
+                <div class="phone-mock">
+                  <img
+                    src="assets/images/ux/ux2-before.jpg"
+                    alt=""
+                    width="360"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </div>
-              <div class="ux-box after">
-                <div class="ux-label" data-i18n="uxLabelAfter"></div>
-                <p data-i18n="ux4After"></p>
-                <div class="phone-mock">Screenshot</div>
+              <div class="ux-box ux-feature-screen">
+                <h3 class="ux-feature-name" data-i18n="ux2bHead"></h3>
+                <p class="ux-feature-desc" data-i18n="ux2After"></p>
+                <div class="phone-mock">
+                  <img
+                    src="assets/images/ux/ux2-after.jpg"
+                    alt=""
+                    width="360"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="ux-pair">
+              <div class="ux-box ux-feature-screen">
+                <h3 class="ux-feature-name" data-i18n="ux3aHead"></h3>
+                <p class="ux-feature-desc" data-i18n="ux3Before"></p>
+                <div class="phone-mock">
+                  <img
+                    src="assets/images/ux/ux3-before.jpg"
+                    alt=""
+                    width="360"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+              <div class="ux-box ux-feature-screen">
+                <h3 class="ux-feature-name" data-i18n="ux3bHead"></h3>
+                <p class="ux-feature-desc" data-i18n="ux3After"></p>
+                <div class="phone-mock">
+                  <img
+                    src="assets/images/ux/ux3-after.jpg"
+                    alt=""
+                    width="360"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="ux-pair">
+              <div class="ux-box ux-feature-screen">
+                <h3 class="ux-feature-name" data-i18n="ux4aHead"></h3>
+                <p class="ux-feature-desc" data-i18n="ux4Before"></p>
+                <div class="phone-mock">
+                  <img
+                    src="assets/images/ux/ux4-before.jpg"
+                    alt=""
+                    width="360"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+              <div class="ux-box ux-feature-screen">
+                <h3 class="ux-feature-name" data-i18n="ux4bHead"></h3>
+                <p class="ux-feature-desc" data-i18n="ux4After"></p>
+                <div class="phone-mock">
+                  <img
+                    src="assets/images/ux/ux4-after.jpg"
+                    alt=""
+                    width="360"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -255,17 +478,47 @@
     </main>
 
     <footer class="site-footer" id="contact">
-      <div class="section-inner">
-        <img
-          src="assets/images/Raidee_logo_white.png"
-          alt=""
-          class="footer-logo"
-          width="120"
-          height="34"
-          data-i18n-alt="logoAlt"
-        />
-        <strong data-i18n="footerTagline">ไร่ดี</strong>
-        <p data-i18n="footerNote"></p>
+      <div class="section-inner footer-shell">
+        <div class="footer-mascot footer-mascot--left" aria-hidden="true">
+          <img
+            src="assets/images/raidee_mascot_boy.png"
+            alt=""
+            width="160"
+            height="200"
+            data-i18n-alt="mascotBoyAlt"
+          />
+        </div>
+        <div class="footer-main">
+          <img
+            src="assets/images/Raidee_logo_white.png"
+            alt=""
+            class="footer-logo"
+            width="140"
+            height="40"
+            data-i18n-alt="logoAlt"
+          />
+          <strong data-i18n="footerTagline">ไร่ดี</strong>
+          <p class="footer-contact">
+            <span data-i18n="footerContactLead"></span>
+            <a
+              class="footer-email"
+              href="mailto:Chanyaxcoding@gmail.com"
+              >Chanyaxcoding@gmail.com</a
+            >
+          </p>
+          <a class="footer-back-top" href="#top" data-i18n="footerBackTop"
+            >กลับขึ้นด้านบน</a
+          >
+        </div>
+        <div class="footer-mascot footer-mascot--right" aria-hidden="true">
+          <img
+            src="assets/images/raidee_mascot_girl.png"
+            alt=""
+            width="160"
+            height="200"
+            data-i18n-alt="mascotGirlFooterAlt"
+          />
+        </div>
       </div>
     </footer>
 
