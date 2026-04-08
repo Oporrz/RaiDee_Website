@@ -4,11 +4,12 @@
  */
 window.RAIDEE_SITE_CONFIG = {
   /**
-   * ลิงก์ดาวน์โหลด APK — แบบ relative ใช้ได้เมื่อโฟลเดอร์ `landing/` เป็น root ของเว็บ
-   * ถ้าโฮสต์ APK ที่อื่น (GitHub Releases / R2) ให้ใส่ URL เต็ม https://...
+   * ลิงก์ดาวน์โหลด APK — ไฟล์ใหญ่เกินอัปโหลดใน repo ได้ดี: แนบใน GitHub Releases แล้วชี้แบบดาวน์โหลดตรง
+   * ชื่อไฟล์ท้าย URL ต้องตรงกับชื่อใน Assets ของรีลีส (รวมตัวพิมพ์เล็กใหญ่)
    */
-  apkUrl: 'downloads/raidee.apk',
-  /** ลิงก์เพิ่มเพื่อน LINE OA — แทนที่ด้วยของจริง */
-  lineOaUrl: 'https://line.me/R/ti/p/@YOUR_LINE_ID',
+  apkUrl:
+    'https://github.com/Oporrz/RaiDee_Website/releases/latest/download/raidee.apk',
+  /** เพิ่มเพื่อน LINE Official Account — @942mipwo */
+  lineOaUrl: 'https://line.me/R/ti/p/@942mipwo',
   playStoreUrl: '',
 };
