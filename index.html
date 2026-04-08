@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ไร่ดี Rai Dee — แอปเพื่อเกษตรกรไทย</title>
+    <meta
+      name="description"
+      content="ไร่ดี — รวมสภาพอากาศ ศัตรูพืช ตลาด และคำแนะนำสำหรับเกษตรกรไทย"
+    />
+    <!-- ใช้ https://www.raidee.site เป็น URL หลักเวลาแชร์ / SEO -->
+    <link rel="canonical" href="https://www.raidee.site/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <script>
+      (function () {
+        if (location.hostname === 'raidee.site') {
+          location.replace(
+            'https://www.raidee.site' +
+              location.pathname +
+              location.search +
+              location.hash
+          );
+        }
+      })();
+    </script>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="#top" class="logo-link" aria-label="ไร่ดี">
+          <img
+            src="assets/images/Raidee_logo.png"
+            alt=""
+            class="logo-img"
+            width="140"
+            height="40"
+            data-i18n-alt="logoAlt"
+          />
+        </a>
+        <button
+          type="button"
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-expanded="false"
+          aria-controls="nav-main"
+          aria-label="เปิดเมนู"
+        >
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+        <nav class="nav-main" id="nav-main" aria-label="หลัก">
+          <a href="#top" data-i18n="navHome">หน้าแรก</a>
+          <a href="#features" data-i18n="navFeaturesNav">ฟีเจอร์</a>
+          <a href="#story" data-i18n="navAbout">เกี่ยวกับเรา</a>
+          <a href="#contact" data-i18n="navContact">ติดต่อ</a>
+        </nav>
+        <div class="header-actions">
+          <button type="button" class="btn-lang-header" id="lang-toggle">
+            <span class="lang-ico" aria-hidden="true">🌐</span>
+            <span data-i18n="langCurrent">ไทย</span>
+          </button>
+          <a
+            class="btn-header-download"
+            id="apk-link-header"
+            href="#download-apk"
+            data-i18n="headerDownload"
+            >ดาวน์โหลด</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <img
+              class="hero-logo-mark"
+              src="assets/images/Raidee_logo.png"
+              alt=""
+              width="200"
+              height="56"
+              data-i18n-alt="logoAlt"
+            />
+            <p class="hero-tagline" data-i18n="heroTagline"></p>
+            <h1 class="hero-title" data-i18n="heroTitle">ไร่ดี</h1>
+            <p class="hero-lead" data-i18n="heroSubtitle"></p>
+            <div class="hero-actions">
+              <a class="btn-hero-primary" id="apk-link" href="#download-apk">
+                <span class="btn-ico" aria-hidden="true">⬇</span>
+                <span data-i18n="heroDownloadShort">ดาวน์โหลดเลย</span>
+              </a>
+              <a
+                class="btn-hero-outline"
+                href="#features"
+                data-i18n="heroLearnMore"
+                >เรียนรู้เพิ่มเติม</a
+              >
+            </div>
+          </div>
+          <div class="hero-visual">
+            <img
+              src="assets/images/raidee_mascots_duo.png"
+              alt=""
+              class="hero-mascots"
+              width="520"
+              height="auto"
+              data-i18n-alt="mascotsAlt"
+            />
+          </div>
+        </div>
+        <a href="#story" class="scroll-hint">
+          <span data-i18n="heroScrollHint">เลื่อนลง</span>
+          <span class="scroll-arrow" aria-hidden="true">↓</span>
+        </a>
+      </section>
+
+      <section class="story-split" id="story">
+        <div class="section-inner story-split-inner">
+          <div class="story-split-art">
+            <img
+              src="assets/images/raidee_mascot_girl.png"
+              alt=""
+              class="story-mascot-img"
+              width="380"
+              height="auto"
+              data-i18n-alt="mascotGirlAlt"
+            />
+          </div>
+          <div class="story-split-copy">
+            <span class="pill-badge" data-i18n="storyBadge"></span>
+            <h2 class="story-heading" data-i18n="storyTitle"></h2>
+            <p class="story-body" data-i18n="storyP1"></p>
+            <p class="story-body" data-i18n="storyP2"></p>
+            <p class="story-mission" data-i18n="storyMission"></p>
+            <a
+              class="btn-line-large"
+              id="line-link"
+              href="https://line.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="lineCtaLong"
+              >แอดไลน์เพื่อรับข่าวสาร</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="features" id="features">
+        <div class="section-inner">
+          <p class="section-kicker" data-i18n="featuresKicker"></p>
+          <h2 class="section-title" data-i18n="featuresTitle"></h2>
+          <p class="section-lead" data-i18n="featuresLead"></p>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <div class="icon" aria-hidden="true">🌧️</div>
+              <h3 data-i18n="f1t"></h3>
+              <p data-i18n="f1d"></p>
+            </article>
+            <article class="feature-card">
+              <div class="icon" aria-hidden="true">🐛</div>
+              <h3 data-i18n="f2t"></h3>
+              <p data-i18n="f2d"></p>
+            </article>
+            <article class="feature-card">
+              <div class="icon" aria-hidden="true">📒</div>
+              <h3 data-i18n="f3t"></h3>
+              <p data-i18n="f3d"></p>
+            </article>
+            <article class="feature-card">
+              <div class="icon" aria-hidden="true">🏷️</div>
+              <h3 data-i18n="f4t"></h3>
+              <p data-i18n="f4d"></p>
+            </article>
+            <article class="feature-card">
+              <div class="icon" aria-hidden="true">✨</div>
+              <h3 data-i18n="f5t"></h3>
+              <p data-i18n="f5d"></p>
+            </article>
+            <article class="feature-card">
+              <div class="icon" aria-hidden="true">📋</div>
+              <h3 data-i18n="f6t"></h3>
+              <p data-i18n="f6d"></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ux-section" id="ux">
+        <div class="section-inner">
+          <p class="section-kicker" data-i18n="uxKicker"></p>
+          <h2 class="section-title" data-i18n="uxTitle"></h2>
+          <p class="section-lead" data-i18n="uxIntro"></p>
+
+          <div class="ux-grid">
+            <div class="ux-pair">
+              <div class="ux-box before">
+                <div class="ux-label" data-i18n="uxLabelBefore"></div>
+                <p data-i18n="ux1Before"></p>
+                <div class="phone-mock">Screenshot</div>
+              </div>
+              <div class="ux-box after">
+                <div class="ux-label" data-i18n="uxLabelAfter"></div>
+                <p data-i18n="ux1After"></p>
+                <div class="phone-mock">Screenshot</div>
+              </div>
+            </div>
+            <div class="ux-pair">
+              <div class="ux-box before">
+                <div class="ux-label" data-i18n="uxLabelBefore"></div>
+                <p data-i18n="ux2Before"></p>
+                <div class="phone-mock">Screenshot</div>
+              </div>
+              <div class="ux-box after">
+                <div class="ux-label" data-i18n="uxLabelAfter"></div>
+                <p data-i18n="ux2After"></p>
+                <div class="phone-mock">Screenshot</div>
+              </div>
+            </div>
+            <div class="ux-pair">
+              <div class="ux-box before">
+                <div class="ux-label" data-i18n="uxLabelBefore"></div>
+                <p data-i18n="ux3Before"></p>
+                <div class="phone-mock">Screenshot</div>
+              </div>
+              <div class="ux-box after">
+                <div class="ux-label" data-i18n="uxLabelAfter"></div>
+                <p data-i18n="ux3After"></p>
+                <div class="phone-mock">Screenshot</div>
+              </div>
+            </div>
+            <div class="ux-pair">
+              <div class="ux-box before">
+                <div class="ux-label" data-i18n="uxLabelBefore"></div>
+                <p data-i18n="ux4Before"></p>
+                <div class="phone-mock">Screenshot</div>
+              </div>
+              <div class="ux-box after">
+                <div class="ux-label" data-i18n="uxLabelAfter"></div>
+                <p data-i18n="ux4After"></p>
+                <div class="phone-mock">Screenshot</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="section-inner">
+        <img
+          src="assets/images/Raidee_logo_white.png"
+          alt=""
+          class="footer-logo"
+          width="120"
+          height="34"
+          data-i18n-alt="logoAlt"
+        />
+        <strong data-i18n="footerTagline">ไร่ดี</strong>
+        <p data-i18n="footerNote"></p>
+      </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="i18n.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
