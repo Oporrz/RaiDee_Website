@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      (function () {
+        var host = location.hostname;
+        if (
+          location.protocol === 'http:' &&
+          (host === 'raidee.site' || host === 'www.raidee.site')
+        ) {
+          location.replace(
+            'https://' +
+              host +
+              location.pathname +
+              location.search +
+              location.hash,
+          );
+        }
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>นโยบายความเป็นส่วนตัว — ไร่ดี Rai Dee</title>
+    <meta
+      name="description"
+      content="นโยบายความเป็นส่วนตัวและการจัดการข้อมูลของเว็บไซต์และแอปไร่ดี"
+    />
+    <link rel="canonical" href="https://www.raidee.site/privacy.html" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .legal-page {
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 2rem clamp(1rem, 4vw, 1.5rem) 4rem;
+        color: var(--brown-text);
+      }
+      .legal-page h1 {
+        font-size: clamp(1.65rem, 4vw, 2rem);
+        color: var(--green-forest);
+        margin: 0 0 0.5rem;
+      }
+      .legal-page .legal-updated {
+        font-size: 0.92rem;
+        color: var(--brown-muted);
+        margin: 0 0 2rem;
+      }
+      .legal-page h2 {
+        font-size: 1.15rem;
+        margin: 2rem 0 0.65rem;
+        color: var(--green-dark);
+      }
+      .legal-page p,
+      .legal-page li {
+        line-height: 1.65;
+        margin: 0 0 0.85rem;
+        font-size: 0.98rem;
+      }
+      .legal-page ul {
+        padding-left: 1.25rem;
+        margin: 0 0 1rem;
+      }
+      .legal-back {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        color: var(--green-dark);
+      }
+      .legal-lang-note {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(46, 125, 50, 0.15);
+      }
+      .legal-lang-note h2 {
+        margin-top: 0;
+      }
+      .legal-header-mini .header-inner {
+        grid-template-columns: auto 1fr;
+        grid-template-areas: 'logo nav';
+      }
+      .legal-header-mini .nav-main {
+        display: flex !important;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 0.65rem 1rem;
+        padding: 0;
+        margin: 0;
+        border: none;
+      }
+      .legal-footer-simple {
+        text-align: center;
+        padding: 1.75rem 1rem 2.5rem;
+      }
+      .legal-footer-simple a {
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.95);
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#legal-main">ข้ามไปยังเนื้อหา</a>
+    <script>
+      (function () {
+        if (location.hostname === 'raidee.site') {
+          var h = location.hash;
+          if (/^#farmers-market$/i.test(h)) h = '';
+          location.replace(
+            'https://www.raidee.site' +
+              location.pathname +
+              location.search +
+              h,
+          );
+        }
+      })();
+    </script>
+    <header class="site-header legal-header-mini">
+      <div class="header-inner">
+        <a href="index.html" class="logo-link" aria-label="กลับหน้าแรกไร่ดี">
+          <img
+            src="assets/images/Raidee_logo.png"
+            alt="โลโก้ไร่ดี"
+            class="logo-img"
+            width="140"
+            height="40"
+          />
+        </a>
+        <nav class="nav-main" aria-label="หลัก" style="display: flex">
+          <a href="index.html#top">หน้าแรก</a>
+          <a href="index.html#contact">ติดต่อ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="legal-main" class="legal-page" tabindex="-1">
+      <a class="legal-back" href="index.html">← กลับหน้าแรก</a>
+      <h1>นโยบายความเป็นส่วนตัว</h1>
+      <p class="legal-updated">อัปเดตล่าสุด: 9 เมษายน พ.ศ. 2569</p>
+
+      <p>
+        เอกสารนี้อธิบายแนวทางโดยรวมของโครงการ <strong>ไร่ดี (Rai Dee)</strong> ในการเก็บรักษาและใช้ข้อมูล
+        ผ่านเว็บไซต์และแอปพลิเคชัน หากคุณใช้บริการของเรา ถือว่าคุณรับทราบแนวทางนี้
+      </p>
+
+      <h2>1. ข้อมูลที่อาจมีการเก็บหรือประมวลผล</h2>
+      <ul>
+        <li>
+          <strong>ข้อมูลบัญชีและการติดต่อ</strong> เช่น อีเมลหรือข้อมูลที่คุณให้เมื่อติดต่อทีมงาน
+        </li>
+        <li>
+          <strong>ข้อมูลฟาร์มและพื้นที่ปลูก</strong> เช่น พิกัดแปลง ชนิดพืช หรือข้อมูลที่คุณบันทึกในแอป
+          เพื่อให้ฟีเจอร์พยากรณ์ แผนที่ หรือคำแนะนำทำงานได้
+        </li>
+        <li>
+          <strong>ข้อมูลการใช้งานเชิงเทคนิค</strong> เช่น ประเภทอุปกรณ์ เวอร์ชันแอป หรือบันทึกข้อผิดพลาด
+          เพื่อปรับปรุงความเสถียรและความปลอดภัย
+        </li>
+      </ul>
+
+      <h2>2. วัตถุประสงค์ในการใช้ข้อมูล</h2>
+      <p>เราใช้ข้อมูลเพื่อให้บริการฟีเจอร์ในแอป ปรับปรุงประสบการณ์ใช้งาน ติดต่อกลับเมื่อจำเป็น
+        และปฏิบัติตามกฎหมายที่เกี่ยวข้อง เราไม่ขายข้อมูลส่วนบุคคลของคุณให้บุคคลที่สามในเชิงพาณิชย์</p>
+
+      <h2>3. การแชร์ข้อมูลกับบริการภายนอก</h2>
+      <p>
+        แอปหรือเว็บอาจเชื่อมต่อบริการของบุคคลที่สามที่จำเป็น เช่น ผู้ให้บริการโฮสต์ ฐานข้อมูล
+        แผนที่ หรือช่องทางสื่อสาร (เช่น LINE) แต่ละผู้ให้บริการมีนโยบายความเป็นส่วนตัวของตนเอง
+      </p>
+
+      <h2>4. คุกกี้และเทคโนโลยีที่คล้ายกัน (เว็บไซต์)</h2>
+      <p>
+        เว็บไซต์อาจใช้การจัดเก็บในเบราว์เซอร์ (เช่น localStorage) เพื่อจดจำภาษาที่เลือก
+        หรือการตั้งค่าที่ไม่ระบุตัวตน คุณสามารถล้างข้อมูลไซต์ผ่านการตั้งค่าเบราว์เซอร์ของคุณได้
+      </p>
+
+      <h2>5. ความปลอดภัย</h2>
+      <p>
+        เราใช้มาตรการที่เหมาะสมตามความสามารถของทีมเพื่อปกป้องข้อมูล อย่างไรก็ตามการส่งข้อมูลผ่านอินเทอร์เน็ตไม่มีความปลอดภัย 100%
+      </p>
+
+      <h2>6. สิทธิของคุณ</h2>
+      <p>
+        คุณอาจขอเข้าถึง แก้ไข หรือลบข้อมูลส่วนบุคคลที่เกี่ยวข้องได้ตามกรอบของกฎหมายคุ้มครองข้อมูลส่วนบุคคล (PDPA)
+        โดยติดต่อทีมงานทางอีเมลด้านล่าง
+      </p>
+
+      <h2>7. การเปลี่ยนแปลงนโยบาย</h2>
+      <p>
+        เราอาจปรับปรุงนโยบายนี้เป็นครั้งคราว โดยแสดงวันที่อัปเดตด้านบนของหน้า การใช้งานต่อหลังมีการเปลี่ยนแปลงถือว่าคุณรับทราบนโยบายฉบับล่าสุด
+      </p>
+
+      <h2>8. ติดต่อ</h2>
+      <p>
+        หากมีคำถามเกี่ยวกับความเป็นส่วนตัวหรือข้อมูลฟาร์ม โปรดติดต่อ:
+        <a href="mailto:Chanyaxcoding@gmail.com">Chanyaxcoding@gmail.com</a>
+      </p>
+
+      <section class="legal-lang-note" lang="en">
+        <h2>Summary (English)</h2>
+        <p>
+          This page describes how the Rai Dee project may collect and use information when you use our website and app
+          (including farm-related data you choose to save). We use it to provide features, improve the service, and comply with applicable law.
+          We do not sell your personal data. Third-party services (hosting, maps, LINE, etc.) have their own policies.
+          You may contact us at the email above for access or deletion requests where applicable under Thai PDPA.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="section-inner legal-footer-simple">
+        <a href="index.html">← กลับหน้าแรก</a>
+      </div>
+    </footer>
+  </body>
+</html>

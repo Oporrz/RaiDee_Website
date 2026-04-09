@@ -2,6 +2,46 @@
 <html lang="th">
   <head>
     <meta charset="utf-8" />
+    <script>
+      (function () {
+        var host = location.hostname;
+        if (
+          location.protocol === 'http:' &&
+          (host === 'raidee.site' || host === 'www.raidee.site')
+        ) {
+          location.replace(
+            'https://' +
+              host +
+              location.pathname +
+              location.search +
+              location.hash,
+          );
+        }
+      })();
+    </script>
+    <link
+      rel="preload"
+      as="image"
+      href="assets/images/illustration_1.webp"
+      type="image/webp"
+    />
+    <script>
+      (function () {
+        try {
+          history.scrollRestoration = 'manual';
+        } catch (_) {}
+        if (/^#farmers-market$/i.test(location.hash)) {
+          history.replaceState(
+            null,
+            '',
+            location.pathname + location.search || '/',
+          );
+          requestAnimationFrame(function () {
+            window.scrollTo(0, 0);
+          });
+        }
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ไร่ดี Rai Dee — แอปเพื่อเกษตรกรไทย</title>
     <meta
@@ -19,14 +59,17 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">ข้ามไปยังเนื้อหา</a>
     <script>
       (function () {
         if (location.hostname === 'raidee.site') {
+          var h = location.hash;
+          if (/^#farmers-market$/i.test(h)) h = '';
           location.replace(
             'https://www.raidee.site' +
               location.pathname +
               location.search +
-              location.hash
+              h,
           );
         }
       })();
@@ -63,9 +106,16 @@
           >
           <a href="#story" data-i18n="navAbout">เกี่ยวกับเรา</a>
           <a href="#contact" data-i18n="navContact">ติดต่อ</a>
+          <a href="privacy.html" data-i18n="navPrivacy">ความเป็นส่วนตัว</a>
         </nav>
         <div class="header-actions">
-          <button type="button" class="btn-lang-header" id="lang-toggle">
+          <button
+            type="button"
+            class="btn-lang-header"
+            id="lang-toggle"
+            data-i18n-aria-label="langToggleAria"
+            aria-label="สลับภาษา ไทยและอังกฤษ"
+          >
             <span class="lang-ico" aria-hidden="true">🌐</span>
             <span data-i18n="langCurrent">ไทย</span>
           </button>
@@ -81,7 +131,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <section
         class="hero-carousel"
         id="top"
@@ -211,29 +261,27 @@
             data-hero-slide="1"
           ></button>
         </div>
-        <div class="scroll-hint">
-          <a
-            href="#story"
-            class="scroll-hint-inner"
-            aria-label="เลื่อนไปยังเนื้อหาถัดไป"
-          >
-            <span data-i18n="heroScrollHint">เลื่อนลง</span>
-            <span class="scroll-arrow" aria-hidden="true">↓</span>
-          </a>
-        </div>
       </section>
 
       <section class="story-split" id="story">
         <div class="section-inner story-split-inner">
           <div class="story-split-art">
-            <img
-              src="assets/images/illustration_2.jpg"
-              alt=""
-              class="story-mascot-img"
-              width="380"
-              height="auto"
-              data-i18n-alt="mascotGirlAlt"
-            />
+            <picture>
+              <source
+                srcset="assets/images/illustration_2.webp"
+                type="image/webp"
+              />
+              <img
+                src="assets/images/illustration_2-960.jpg"
+                alt=""
+                class="story-mascot-img"
+                width="380"
+                height="auto"
+                loading="lazy"
+                decoding="async"
+                data-i18n-alt="mascotGirlAlt"
+              />
+            </picture>
           </div>
           <div class="story-split-copy">
             <span class="pill-badge" data-i18n="storyBadge"></span>
@@ -357,28 +405,42 @@
                 <h3 class="ux-feature-name" data-i18n="ux1aHead"></h3>
                 <p class="ux-feature-desc" data-i18n="ux1Before"></p>
                 <div class="phone-mock">
-                  <img
-                    src="assets/images/ux/ux1-before.jpg"
-                    alt=""
-                    width="360"
-                    height="640"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <picture>
+                    <source
+                      srcset="assets/images/ux/ux1-before.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/images/ux/ux1-before.jpg"
+                      alt=""
+                      width="360"
+                      height="640"
+                      loading="lazy"
+                      decoding="async"
+                      data-i18n-alt="uxImg1Before"
+                    />
+                  </picture>
                 </div>
               </div>
               <div class="ux-box ux-feature-screen">
                 <h3 class="ux-feature-name" data-i18n="ux1bHead"></h3>
                 <p class="ux-feature-desc" data-i18n="ux1After"></p>
                 <div class="phone-mock">
-                  <img
-                    src="assets/images/ux/ux1-after.jpg"
-                    alt=""
-                    width="360"
-                    height="640"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <picture>
+                    <source
+                      srcset="assets/images/ux/ux1-after.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/images/ux/ux1-after.jpg"
+                      alt=""
+                      width="360"
+                      height="640"
+                      loading="lazy"
+                      decoding="async"
+                      data-i18n-alt="uxImg1After"
+                    />
+                  </picture>
                 </div>
               </div>
             </div>
@@ -387,28 +449,42 @@
                 <h3 class="ux-feature-name" data-i18n="ux2aHead"></h3>
                 <p class="ux-feature-desc" data-i18n="ux2Before"></p>
                 <div class="phone-mock">
-                  <img
-                    src="assets/images/ux/ux2-before.jpg"
-                    alt=""
-                    width="360"
-                    height="640"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <picture>
+                    <source
+                      srcset="assets/images/ux/ux2-before.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/images/ux/ux2-before.jpg"
+                      alt=""
+                      width="360"
+                      height="640"
+                      loading="lazy"
+                      decoding="async"
+                      data-i18n-alt="uxImg2Before"
+                    />
+                  </picture>
                 </div>
               </div>
               <div class="ux-box ux-feature-screen">
                 <h3 class="ux-feature-name" data-i18n="ux2bHead"></h3>
                 <p class="ux-feature-desc" data-i18n="ux2After"></p>
                 <div class="phone-mock">
-                  <img
-                    src="assets/images/ux/ux2-after.jpg"
-                    alt=""
-                    width="360"
-                    height="640"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <picture>
+                    <source
+                      srcset="assets/images/ux/ux2-after.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/images/ux/ux2-after.jpg"
+                      alt=""
+                      width="360"
+                      height="640"
+                      loading="lazy"
+                      decoding="async"
+                      data-i18n-alt="uxImg2After"
+                    />
+                  </picture>
                 </div>
               </div>
             </div>
@@ -417,28 +493,42 @@
                 <h3 class="ux-feature-name" data-i18n="ux3aHead"></h3>
                 <p class="ux-feature-desc" data-i18n="ux3Before"></p>
                 <div class="phone-mock">
-                  <img
-                    src="assets/images/ux/ux3-before.jpg"
-                    alt=""
-                    width="360"
-                    height="640"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <picture>
+                    <source
+                      srcset="assets/images/ux/ux3-before.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/images/ux/ux3-before.jpg"
+                      alt=""
+                      width="360"
+                      height="640"
+                      loading="lazy"
+                      decoding="async"
+                      data-i18n-alt="uxImg3Before"
+                    />
+                  </picture>
                 </div>
               </div>
               <div class="ux-box ux-feature-screen">
                 <h3 class="ux-feature-name" data-i18n="ux3bHead"></h3>
                 <p class="ux-feature-desc" data-i18n="ux3After"></p>
                 <div class="phone-mock">
-                  <img
-                    src="assets/images/ux/ux3-after.jpg"
-                    alt=""
-                    width="360"
-                    height="640"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <picture>
+                    <source
+                      srcset="assets/images/ux/ux3-after.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/images/ux/ux3-after.jpg"
+                      alt=""
+                      width="360"
+                      height="640"
+                      loading="lazy"
+                      decoding="async"
+                      data-i18n-alt="uxImg3After"
+                    />
+                  </picture>
                 </div>
               </div>
             </div>
@@ -447,28 +537,42 @@
                 <h3 class="ux-feature-name" data-i18n="ux4aHead"></h3>
                 <p class="ux-feature-desc" data-i18n="ux4Before"></p>
                 <div class="phone-mock">
-                  <img
-                    src="assets/images/ux/ux4-before.jpg"
-                    alt=""
-                    width="360"
-                    height="640"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <picture>
+                    <source
+                      srcset="assets/images/ux/ux4-before.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/images/ux/ux4-before.jpg"
+                      alt=""
+                      width="360"
+                      height="640"
+                      loading="lazy"
+                      decoding="async"
+                      data-i18n-alt="uxImg4Before"
+                    />
+                  </picture>
                 </div>
               </div>
               <div class="ux-box ux-feature-screen">
                 <h3 class="ux-feature-name" data-i18n="ux4bHead"></h3>
                 <p class="ux-feature-desc" data-i18n="ux4After"></p>
                 <div class="phone-mock">
-                  <img
-                    src="assets/images/ux/ux4-after.jpg"
-                    alt=""
-                    width="360"
-                    height="640"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <picture>
+                    <source
+                      srcset="assets/images/ux/ux4-after.webp"
+                      type="image/webp"
+                    />
+                    <img
+                      src="assets/images/ux/ux4-after.jpg"
+                      alt=""
+                      width="360"
+                      height="640"
+                      loading="lazy"
+                      decoding="async"
+                      data-i18n-alt="uxImg4After"
+                    />
+                  </picture>
                 </div>
               </div>
             </div>
@@ -504,6 +608,11 @@
               class="footer-email"
               href="mailto:Chanyaxcoding@gmail.com"
               >Chanyaxcoding@gmail.com</a
+            >
+          </p>
+          <p class="footer-legal">
+            <a href="privacy.html" data-i18n="footerPrivacy"
+              >นโยบายความเป็นส่วนตัว</a
             >
           </p>
           <a class="footer-back-top" href="#top" data-i18n="footerBackTop"

@@ -9,6 +9,7 @@
       navMarket: 'ตลาดนัดเกษตรกร',
       navAbout: 'เกี่ยวกับเรา',
       navContact: 'ติดต่อ',
+      navPrivacy: 'ความเป็นส่วนตัว',
       headerDownload: 'ดาวน์โหลด',
       langCurrent: 'ไทย',
       heroTagline: 'เพื่อนคู่ใจเกษตรกรไทย',
@@ -17,7 +18,6 @@
         '"วันนี้ควรทำอะไรก่อนดี?" ไร่ดีเช็คสภาพอากาศ ราคาผลผลิต ราคาสินค้าทางการเกษตร ตรวจโรคแมลงระบาดให้คุณ แล้วบอกสรุปว่าต้องทำอะไรบ้าง ทุกเช้าผ่าน LINE ฟรี! ไม่มีค่าใช้จ่าย',
       heroDownloadShort: 'ดาวน์โหลดฟรี',
       heroLearnMore: 'เรียนรู้เพิ่มเติม',
-      heroScrollHint: 'เลื่อนลง',
       mascotsAlt: 'มาสคอตไร่ดี',
       mascotGirlAlt: 'มาสคอตไร่ดี',
       storyBadge: 'จุดเริ่มต้นของไร่ดี',
@@ -90,6 +90,17 @@
       footerTagline: 'ไร่ดี — เพื่อนคู่คิดเกษตรกรไทย',
       footerContactLead: 'ติดต่อผู้พัฒนาได้ที่อีเมล ',
       footerBackTop: 'กลับขึ้นด้านบน',
+      footerPrivacy: 'นโยบายความเป็นส่วนตัว',
+      langToggleAria: 'สลับภาษา ไทยและอังกฤษ',
+      uxImg1Before:
+        'สกรีนแอปไร่ดี หน้าแรก การ์ด AI แนะนำงานวันนี้และเตือนศัตรูพืช',
+      uxImg1After: 'สกรีนแอปไร่ดี เมนูลัดจากปุ่มมุมขวาล่าง',
+      uxImg2Before: 'สกรีนแอปไร่ดี Zero Waste เศษวัสดุกลับมาใช้',
+      uxImg2After: 'สกรีนแอปไร่ดี Zero Waste มูลค่าเศษวัสดุและแหล่งรับซื้อ',
+      uxImg3Before: 'สกรีนแอปไร่ดี ข้อมูลพื้นที่ ศัตรูพืชและราคาใกล้แปลง',
+      uxImg3After: 'สกรีนแอปไร่ดี วางแผนก่อนปลูกและคำนวณกำไร',
+      uxImg4Before: 'สกรีนแอปไร่ดี ราคาพืชและจังหวะขาย',
+      uxImg4After: 'สกรีนแอปไร่ดี แผนที่ดินและข้อมูลชั้นดิน',
       mascotBoyAlt: 'มาสคอตไร่ดี (ชาย)',
       mascotGirlFooterAlt: 'มาสคอตไร่ดี (หญิง)',
     },
@@ -100,6 +111,7 @@
       navMarket: 'Farmer’s market',
       navAbout: 'About',
       navContact: 'Contact',
+      navPrivacy: 'Privacy',
       headerDownload: 'Download',
       langCurrent: 'English',
       heroTagline: 'Your field-smart partner — built for Thai farmers',
@@ -108,7 +120,6 @@
         '“What should I do first today?” Rai Dee checks the weather, crop prices, and farm-input prices, tracks pest and disease risk for you, then tells you what to do next—in a morning summary on LINE, free! No charge.',
       heroDownloadShort: 'Download Free',
       heroLearnMore: 'Learn more',
-      heroScrollHint: 'Scroll',
       mascotsAlt: 'Rai Dee mascots',
       mascotGirlAlt: 'Rai Dee mascot',
       storyBadge: 'Where Rai Dee starts',
@@ -181,6 +192,17 @@
       footerTagline: 'Rai Dee — a thinking partner for Thai farmers',
       footerContactLead: 'Contact the developer: ',
       footerBackTop: 'Back to top',
+      footerPrivacy: 'Privacy policy',
+      langToggleAria: 'Switch language Thai and English',
+      uxImg1Before:
+        'Rai Dee app: home screen with AI suggestions and pest alerts',
+      uxImg1After: 'Rai Dee app: quick menu from bottom-right bubble',
+      uxImg2Before: 'Rai Dee app: Zero Waste reuse of farm leftovers',
+      uxImg2After: 'Rai Dee app: Zero Waste value and buyer locations',
+      uxImg3Before: 'Rai Dee app: local area insights and nearby prices',
+      uxImg3After: 'Rai Dee app: pre-plant planner and profit estimate',
+      uxImg4Before: 'Rai Dee app: crop prices and selling window',
+      uxImg4After: 'Rai Dee app: soil map and soil layer data',
       mascotBoyAlt: 'Rai Dee mascot (boy)',
       mascotGirlFooterAlt: 'Rai Dee mascot (girl)',
     },
@@ -203,6 +225,10 @@
     document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
       const k = el.getAttribute('data-i18n-alt');
       if (k && d[k] != null) el.setAttribute('alt', d[k]);
+    });
+    document.querySelectorAll('[data-i18n-aria-label]').forEach((el) => {
+      const k = el.getAttribute('data-i18n-aria-label');
+      if (k && d[k] != null) el.setAttribute('aria-label', d[k]);
     });
   }
 

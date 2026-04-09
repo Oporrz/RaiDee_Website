@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.phone-mock img').forEach((img) => {
     img.addEventListener('error', () => {
+      console.warn('[Raidee] image failed to load:', img.getAttribute('src'));
       img.remove();
     });
   });
