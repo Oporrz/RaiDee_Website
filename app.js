@@ -1,6 +1,65 @@
 document.addEventListener('DOMContentLoaded', () => {
   if (window.RAIDEE_I18N) window.RAIDEE_I18N.init();
 
+  /* เปลี่ยนเลขเวอร์ชันเมื่อแก้นโยบายสำคัญ — จะให้ป๊อปอัปขึ้นอีกครั้ง */
+  const PRIVACY_STORAGE_KEY = 'raidee_privacy_v3';
+  const privacyRoot = document.getElementById('privacy-consent-root');
+  const privacyAcceptBtn = document.getElementById('privacy-consent-accept');
+  const privacyToggleBtn = document.getElementById('privacy-toggle-full');
+  const privacyFullWrap = document.getElementById('privacy-full-wrap');
+  if (privacyRoot && privacyAcceptBtn) {
+    function hasPrivacyConsentSaved() {
+      try {
+        return Boolean(localStorage.getItem(PRIVACY_STORAGE_KEY));
+      } catch (_) {
+        return false;
+      }
+    }
+    const showPrivacyConsent = () => {
+      privacyRoot.removeAttribute('hidden');
+      document.body.classList.add('privacy-consent-active');
+      privacyAcceptBtn.focus();
+    };
+    const hidePrivacyConsent = () => {
+      privacyRoot.setAttribute('hidden', '');
+      document.body.classList.remove('privacy-consent-active');
+      document.body.classList.remove('privacy-consent-panel-open');
+      privacyRoot.classList.remove('privacy-consent--expanded');
+    };
+    if (!hasPrivacyConsentSaved()) showPrivacyConsent();
+    privacyAcceptBtn.addEventListener('click', () => {
+      try {
+        localStorage.setItem(PRIVACY_STORAGE_KEY, '1');
+      } catch (_) {
+        /* private mode / storage เต็ม */
+      }
+      hidePrivacyConsent();
+    });
+
+    if (privacyToggleBtn && privacyFullWrap) {
+      const labelShow = privacyToggleBtn.querySelector('.privacy-toggle__show');
+      const labelHide = privacyToggleBtn.querySelector('.privacy-toggle__hide');
+      privacyToggleBtn.addEventListener('click', () => {
+        const opening = privacyFullWrap.hidden;
+        if (opening) {
+          privacyFullWrap.hidden = false;
+          privacyRoot.classList.add('privacy-consent--expanded');
+          document.body.classList.add('privacy-consent-panel-open');
+          privacyToggleBtn.setAttribute('aria-expanded', 'true');
+          if (labelShow) labelShow.hidden = true;
+          if (labelHide) labelHide.hidden = false;
+        } else {
+          privacyFullWrap.hidden = true;
+          privacyRoot.classList.remove('privacy-consent--expanded');
+          document.body.classList.remove('privacy-consent-panel-open');
+          privacyToggleBtn.setAttribute('aria-expanded', 'false');
+          if (labelShow) labelShow.hidden = false;
+          if (labelHide) labelHide.hidden = true;
+        }
+      });
+    }
+  }
+
   const nav = document.getElementById('nav-main');
   const navToggle = document.getElementById('nav-toggle');
   const closeNav = () => {

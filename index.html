@@ -4,29 +4,6 @@
     <meta charset="utf-8" />
     <script>
       (function () {
-        var host = location.hostname;
-        if (
-          location.protocol === 'http:' &&
-          (host === 'raidee.site' || host === 'www.raidee.site')
-        ) {
-          location.replace(
-            'https://' +
-              host +
-              location.pathname +
-              location.search +
-              location.hash,
-          );
-        }
-      })();
-    </script>
-    <link
-      rel="preload"
-      as="image"
-      href="assets/images/illustration_1.webp"
-      type="image/webp"
-    />
-    <script>
-      (function () {
         try {
           history.scrollRestoration = 'manual';
         } catch (_) {}
@@ -59,7 +36,6 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <a class="skip-link" href="#main-content">ข้ามไปยังเนื้อหา</a>
     <script>
       (function () {
         if (location.hostname === 'raidee.site') {
@@ -106,16 +82,9 @@
           >
           <a href="#story" data-i18n="navAbout">เกี่ยวกับเรา</a>
           <a href="#contact" data-i18n="navContact">ติดต่อ</a>
-          <a href="privacy.html" data-i18n="navPrivacy">ความเป็นส่วนตัว</a>
         </nav>
         <div class="header-actions">
-          <button
-            type="button"
-            class="btn-lang-header"
-            id="lang-toggle"
-            data-i18n-aria-label="langToggleAria"
-            aria-label="สลับภาษา ไทยและอังกฤษ"
-          >
+          <button type="button" class="btn-lang-header" id="lang-toggle">
             <span class="lang-ico" aria-hidden="true">🌐</span>
             <span data-i18n="langCurrent">ไทย</span>
           </button>
@@ -131,7 +100,7 @@
       </div>
     </header>
 
-    <main id="main-content" tabindex="-1">
+    <main>
       <section
         class="hero-carousel"
         id="top"
@@ -266,22 +235,14 @@
       <section class="story-split" id="story">
         <div class="section-inner story-split-inner">
           <div class="story-split-art">
-            <picture>
-              <source
-                srcset="assets/images/illustration_2.webp"
-                type="image/webp"
-              />
-              <img
-                src="assets/images/illustration_2-960.jpg"
-                alt=""
-                class="story-mascot-img"
-                width="380"
-                height="auto"
-                loading="lazy"
-                decoding="async"
-                data-i18n-alt="mascotGirlAlt"
-              />
-            </picture>
+            <img
+              src="assets/images/illustration_2.jpg"
+              alt=""
+              class="story-mascot-img"
+              width="380"
+              height="auto"
+              data-i18n-alt="mascotGirlAlt"
+            />
           </div>
           <div class="story-split-copy">
             <span class="pill-badge" data-i18n="storyBadge"></span>
@@ -405,42 +366,28 @@
                 <h3 class="ux-feature-name" data-i18n="ux1aHead"></h3>
                 <p class="ux-feature-desc" data-i18n="ux1Before"></p>
                 <div class="phone-mock">
-                  <picture>
-                    <source
-                      srcset="assets/images/ux/ux1-before.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="assets/images/ux/ux1-before.jpg"
-                      alt=""
-                      width="360"
-                      height="640"
-                      loading="lazy"
-                      decoding="async"
-                      data-i18n-alt="uxImg1Before"
-                    />
-                  </picture>
+                  <img
+                    src="assets/images/ux/ux1-before.jpg"
+                    alt=""
+                    width="360"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
               <div class="ux-box ux-feature-screen">
                 <h3 class="ux-feature-name" data-i18n="ux1bHead"></h3>
                 <p class="ux-feature-desc" data-i18n="ux1After"></p>
                 <div class="phone-mock">
-                  <picture>
-                    <source
-                      srcset="assets/images/ux/ux1-after.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="assets/images/ux/ux1-after.jpg"
-                      alt=""
-                      width="360"
-                      height="640"
-                      loading="lazy"
-                      decoding="async"
-                      data-i18n-alt="uxImg1After"
-                    />
-                  </picture>
+                  <img
+                    src="assets/images/ux/ux1-after.jpg"
+                    alt=""
+                    width="360"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
             </div>
@@ -449,42 +396,28 @@
                 <h3 class="ux-feature-name" data-i18n="ux2aHead"></h3>
                 <p class="ux-feature-desc" data-i18n="ux2Before"></p>
                 <div class="phone-mock">
-                  <picture>
-                    <source
-                      srcset="assets/images/ux/ux2-before.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="assets/images/ux/ux2-before.jpg"
-                      alt=""
-                      width="360"
-                      height="640"
-                      loading="lazy"
-                      decoding="async"
-                      data-i18n-alt="uxImg2Before"
-                    />
-                  </picture>
+                  <img
+                    src="assets/images/ux/ux2-before.jpg"
+                    alt=""
+                    width="360"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
               <div class="ux-box ux-feature-screen">
                 <h3 class="ux-feature-name" data-i18n="ux2bHead"></h3>
                 <p class="ux-feature-desc" data-i18n="ux2After"></p>
                 <div class="phone-mock">
-                  <picture>
-                    <source
-                      srcset="assets/images/ux/ux2-after.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="assets/images/ux/ux2-after.jpg"
-                      alt=""
-                      width="360"
-                      height="640"
-                      loading="lazy"
-                      decoding="async"
-                      data-i18n-alt="uxImg2After"
-                    />
-                  </picture>
+                  <img
+                    src="assets/images/ux/ux2-after.jpg"
+                    alt=""
+                    width="360"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
             </div>
@@ -493,42 +426,28 @@
                 <h3 class="ux-feature-name" data-i18n="ux3aHead"></h3>
                 <p class="ux-feature-desc" data-i18n="ux3Before"></p>
                 <div class="phone-mock">
-                  <picture>
-                    <source
-                      srcset="assets/images/ux/ux3-before.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="assets/images/ux/ux3-before.jpg"
-                      alt=""
-                      width="360"
-                      height="640"
-                      loading="lazy"
-                      decoding="async"
-                      data-i18n-alt="uxImg3Before"
-                    />
-                  </picture>
+                  <img
+                    src="assets/images/ux/ux3-before.jpg"
+                    alt=""
+                    width="360"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
               <div class="ux-box ux-feature-screen">
                 <h3 class="ux-feature-name" data-i18n="ux3bHead"></h3>
                 <p class="ux-feature-desc" data-i18n="ux3After"></p>
                 <div class="phone-mock">
-                  <picture>
-                    <source
-                      srcset="assets/images/ux/ux3-after.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="assets/images/ux/ux3-after.jpg"
-                      alt=""
-                      width="360"
-                      height="640"
-                      loading="lazy"
-                      decoding="async"
-                      data-i18n-alt="uxImg3After"
-                    />
-                  </picture>
+                  <img
+                    src="assets/images/ux/ux3-after.jpg"
+                    alt=""
+                    width="360"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
             </div>
@@ -537,42 +456,28 @@
                 <h3 class="ux-feature-name" data-i18n="ux4aHead"></h3>
                 <p class="ux-feature-desc" data-i18n="ux4Before"></p>
                 <div class="phone-mock">
-                  <picture>
-                    <source
-                      srcset="assets/images/ux/ux4-before.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="assets/images/ux/ux4-before.jpg"
-                      alt=""
-                      width="360"
-                      height="640"
-                      loading="lazy"
-                      decoding="async"
-                      data-i18n-alt="uxImg4Before"
-                    />
-                  </picture>
+                  <img
+                    src="assets/images/ux/ux4-before.jpg"
+                    alt=""
+                    width="360"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
               <div class="ux-box ux-feature-screen">
                 <h3 class="ux-feature-name" data-i18n="ux4bHead"></h3>
                 <p class="ux-feature-desc" data-i18n="ux4After"></p>
                 <div class="phone-mock">
-                  <picture>
-                    <source
-                      srcset="assets/images/ux/ux4-after.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="assets/images/ux/ux4-after.jpg"
-                      alt=""
-                      width="360"
-                      height="640"
-                      loading="lazy"
-                      decoding="async"
-                      data-i18n-alt="uxImg4After"
-                    />
-                  </picture>
+                  <img
+                    src="assets/images/ux/ux4-after.jpg"
+                    alt=""
+                    width="360"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </div>
             </div>
@@ -610,11 +515,6 @@
               >Chanyaxcoding@gmail.com</a
             >
           </p>
-          <p class="footer-legal">
-            <a href="privacy.html" data-i18n="footerPrivacy"
-              >นโยบายความเป็นส่วนตัว</a
-            >
-          </p>
           <a class="footer-back-top" href="#top" data-i18n="footerBackTop"
             >กลับขึ้นด้านบน</a
           >
@@ -630,6 +530,165 @@
         </div>
       </div>
     </footer>
+
+    <div
+      id="privacy-consent-root"
+      class="privacy-consent"
+      hidden
+    >
+      <div
+        id="privacy-full-wrap"
+        class="privacy-consent__panel"
+        hidden
+      >
+          <div
+            class="privacy-consent__full-scroll"
+            tabindex="0"
+            aria-label="ข้อความนโยบายความเป็นส่วนตัวฉบับเต็ม"
+          >
+            <h3 class="privacy-inline-doc-title">
+              นโยบายความเป็นส่วนตัวและข้อมูลฟาร์ม
+            </h3>
+            <p class="privacy-updated">ปรับปรุงล่าสุด: เมษายน 2569</p>
+
+            <section class="privacy-block">
+              <h2>1. บทนำ</h2>
+              <p>
+                เอกสารนี้อธิบายว่าเว็บไซต์และบริการที่เกี่ยวข้องกับ
+                <strong>ไร่ดี (Rai Dee)</strong>
+                จัดการข้อมูลส่วนบุคคลและข้อมูลเกี่ยวกับการเกษตรของคุณอย่างไร
+                การใช้งานเว็บไซต์หรือแอปถือว่าคุณได้อ่านและทำความเข้าใจนโยบายนี้
+              </p>
+            </section>
+
+            <section class="privacy-block">
+              <h2>2. ผู้รับผิดชอบ</h2>
+              <p>
+                ผู้พัฒนาและผู้ให้บริการไร่ดีเป็นผู้กำหนดวัตถุประสงค์และวิธีการประมวลผลข้อมูลตามนโยบายนี้
+                ติดต่อสอบถามได้ทางอีเมลที่ระบุบนหน้าเว็บไซต์หลัก
+              </p>
+            </section>
+
+            <section class="privacy-block">
+              <h2>3. ข้อมูลที่อาจมีการเก็บหรือใช้</h2>
+              <p>ขึ้นกับฟีเจอร์ที่คุณใช้ ข้อมูลอาจรวมถึงไม่จำกัดเพียง:</p>
+              <ul>
+                <li>
+                  <strong>ข้อมูลบัญชีและโปรไฟล์</strong> เช่น ชื่อเล่น ข้อมูลติดต่อ
+                  หรือข้อมูลที่คุณกรอกในแอป
+                </li>
+                <li>
+                  <strong>ข้อมูลฟาร์มและแปลง</strong> เช่น พื้นที่ปลูก พิกัดหรือตำแหน่งแปลง
+                  ชนิดพืช บันทึกต้นทุน ปฏิทินกิจกรรม หรือข้อมูลที่เกี่ยวกับการผลิต
+                </li>
+                <li>
+                  <strong>ข้อมูลการใช้งาน</strong> เช่น ประเภทอุปกรณ์ ภาษาที่เลือก
+                  หรือเหตุการขัดข้องทางเทคนิค (ถ้ามีการเก็บบันทึก)
+                </li>
+                <li>
+                  <strong>ช่องทาง LINE Official Account</strong> หากคุณเพิ่มเพื่อนหรือโต้ตอบผ่าน LINE
+                  การส่งข้อความหรือสรุปข้อมูลอาจอยู่ภายใต้เงื่อนไขของผู้ให้บริการ LINE
+                </li>
+              </ul>
+            </section>
+
+            <section class="privacy-block">
+              <h2>4. วัตถุประสงค์ในการใช้ข้อมูล</h2>
+              <p>เราใช้ข้อมูลเพื่อวัตถุประสงค์ที่จำเป็นและสมส่วน เช่น:</p>
+              <ul>
+                <li>ให้บริการฟีเจอร์ในแอปและบนเว็บ (พยากรณ์ คำแนะนำ ตลาด ชุมชน ฯลฯ)</li>
+                <li>ปรับปรุงความปลอดภัย คุณภาพ และประสบการณ์การใช้งาน</li>
+                <li>แจ้งข่าวสารหรือการอัปเดตที่เกี่ยวกับบริการ (เมื่อมีการอนุญาตตามกฎหมาย)</li>
+              </ul>
+            </section>
+
+            <section class="privacy-block">
+              <h2>5. ฐานทางกฎหมายและการแบ่งปันข้อมูล</h2>
+              <p>
+                การประมวลผลอาจอาศัยความยินยอมของคุณ การปฏิบัติตามสัญญา
+                หรือฐานอื่นตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA)
+                ตามที่เกี่ยวข้อง
+              </p>
+              <p>
+                เราไม่ขายข้อมูลส่วนบุคคลของคุณ
+                การส่งต่อให้ผู้ให้บริการภายนอก (เช่น โฮสต์เซิร์ฟเวอร์ แพลตฟอร์มแจ้งเตือน
+                หรือผู้ให้บริการแผนที่) จะทำเฉพาะเมื่อจำเป็นต่อการให้บริการและภายใต้ข้อตกลงที่เหมาะสม
+              </p>
+            </section>
+
+            <section class="privacy-block">
+              <h2>6. ระยะเวลาเก็บรักษา</h2>
+              <p>
+                เก็บรักษาเท่าที่จำเป็นตามวัตถุประสงค์และตามกฎหมาย
+                เมื่อไม่จำเป็นแล้วจะลบหรือทำให้ไม่สามารถระบุตัวบุคคลได้
+              </p>
+            </section>
+
+            <section class="privacy-block">
+              <h2>7. สิทธิของเจ้าของข้อมูล</h2>
+              <p>
+                คุณอาจมีสิทธิขอเข้าถึง แก้ไข ลบ ระงับ หรือคัดค้านการประมวลผล
+                รวมถึงถอนความยินยอม (หากประมวลผลโดยอาศัยความยินยอม) ตามเงื่อนไขของ PDPA
+                ติดต่อผ่านอีเมลบนหน้าเว็บไซต์หลัก
+              </p>
+            </section>
+
+            <section class="privacy-block">
+              <h2>8. คุกกี้และการจัดเก็บในอุปกรณ์</h2>
+              <p>
+                เว็บไซต์อาจจัดเก็บค่าการตั้งค่า (เช่น ภาษา) และการยอมรับนโยบายความเป็นส่วนตัวในเบราว์เซอร์ของคุณ
+                (เช่น ผ่าน localStorage) เพื่อไม่ต้องแสดงคำถามซ้ำทุกครั้ง
+              </p>
+            </section>
+
+            <section class="privacy-block">
+              <h2>9. การแก้ไขนโยบาย</h2>
+              <p>
+                เราอาจปรับปรุงนโยบายนี้เป็นครั้งคราว การเปลี่ยนแปลงที่สำคัญจะแจ้งผ่านเว็บไซต์หรือช่องทางที่เหมาะสม
+                วันที่ปรับปรุงจะระบุด้านบนของเอกสาร
+              </p>
+            </section>
+          </div>
+        </div>
+
+      <div
+        class="privacy-consent__bar"
+        role="region"
+        aria-label="แจ้งเตือนความเป็นส่วนตัว"
+      >
+        <div class="privacy-consent__bar-inner">
+          <div class="privacy-consent__copy">
+            <p class="privacy-consent__summary" data-i18n="privacyBarSummary">
+              เว็บไร่ดีมีการจัดเก็บข้อมูลการตั้งค่าและข้อมูลที่จำเป็นเพื่อให้บริการแอปและเว็บ
+              (รวมข้อมูลที่เกี่ยวกับฟาร์มและการติดต่อผ่าน LINE ตามที่คุณใช้งาน)
+              การใช้งานต่อถือว่าคุณยอมรับนโยบายความเป็นส่วนตัว
+            </p>
+            <button
+              type="button"
+              class="privacy-consent__readmore"
+              id="privacy-toggle-full"
+              aria-expanded="false"
+              aria-controls="privacy-full-wrap"
+            >
+              <span class="privacy-toggle__show" data-i18n="privacyExpandPolicy"
+                >อ่านเพิ่มเติม</span
+              >
+              <span class="privacy-toggle__hide" hidden data-i18n="privacyCollapsePolicy"
+                >ซ่อนรายละเอียด</span
+              >
+            </button>
+          </div>
+          <button
+            type="button"
+            class="btn-privacy-accept"
+            id="privacy-consent-accept"
+            data-i18n="privacyAccept"
+          >
+            ตกลง
+          </button>
+        </div>
+      </div>
+    </div>
 
     <script src="config.js"></script>
     <script src="i18n.js"></script>
