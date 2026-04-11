@@ -281,6 +281,15 @@ a {
   box-sizing: border-box;
 }
 
+/* เดสก์ท็อป / แท็บเล็ตจอปกติ: ลดความสูงแบนเนอร์ — มือถือ (max-width:767px) ไม่โดน; แนวนอนสั้นๆ ไม่โดนเพราะ min-height */
+@media (min-width: 768px) and (min-height: 600px) {
+  .hero-carousel,
+  .hero-carousel-track,
+  .hero-slide {
+    min-height: min(58vh, 560px);
+  }
+}
+
 .hero-slide--home,
 .hero-slide--market {
   padding: 2rem 1.25rem 1.25rem;
