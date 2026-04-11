@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ไร่ดี</title>
+  <style>
+    :root { --green: #3b6d11; --green2: #4a8c1c; --bg: #f5faf6; --text: #1b2e24; }
+    body { font-family: system-ui, "Sarabun", sans-serif; margin: 0; padding: 16px; background: var(--bg); color: var(--text); line-height: 1.5; }
+    .hero {
+      background: linear-gradient(135deg, var(--green), var(--green2));
+      color: #fff; border-radius: 12px; padding: 20px; margin-bottom: 16px;
+    }
+    .hero h1 { margin: 0 0 8px; font-size: 1.35rem; }
+    .hero p { margin: 0; opacity: 0.95; font-size: 1rem; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 999px; font-size: 0.85rem; margin-top: 10px; }
+    .card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px; border: 1px solid rgba(59,109,17,0.2); }
+    .batch-line { margin-bottom: 8px; font-size: 1rem; }
+    .err { color: #b71c1c; text-align: center; margin-top: 32px; }
+    .foot { margin-top: 24px; font-size: 0.8rem; color: #6d7d72; }
+    .line-btn {
+      display: block; text-align: center; background: #06c755; color: #fff !important;
+      text-decoration: none; padding: 14px 20px; border-radius: 10px; font-weight: 700; margin-top: 12px;
+    }
+    a.home { color: var(--green); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    /**
+     * GitHub Pages: ไม่มี server rewrite — URL /f/รหัส8ตัว ไม่มีไฟล์จริง → เสิร์ฟ 404.html นี้
+     * แต่ที่อยู่ในแถบยังเป็น /f/รหัส → parseCode() ใช้ได้
+     */
+    function escapeHtml(t) {
+      const d = document.createElement("div");
+      d.textContent = t;
+      return d.innerHTML;
+    }
+    function parseCode() {
+      const m = window.location.pathname.match(/\/f\/([a-z0-9]{8})(?:\/|$)/i);
+      if (m) return m[1].toLowerCase();
+      const q = new URLSearchParams(window.location.search).get("c");
+      if (q && /^[a-z0-9]{8}$/i.test(q.trim())) return q.trim().toLowerCase();
+      return null;
+    }
+    function isFarmShortUrl() {
+      return /\/f\/[a-z0-9]{8}(?:\/|$)/i.test(window.location.pathname);
+    }
+    async function run() {
+      const el = document.getElementById("root");
+      const code = parseCode();
+      if (!code) {
+        if (isFarmShortUrl()) {
+          el.innerHTML = "<p class='err'>ลิงก์ไม่ถูกต้อง (ต้องมีรหัส 8 ตัว)</p>";
+        } else {
+          el.innerHTML =
+            "<p class='err'>ไม่พบหน้านี้</p>" +
+            "<p style='text-align:center'><a class='home' href='/'>← กลับหน้าแรก</a></p>";
+        }
+        return;
+      }
+      const cfg = window.RAIDEE_SITE_CONFIG || {};
+      const base = (cfg.supabaseUrl || "").replace(/\/$/, "");
+      const key = (cfg.supabaseAnonKey || "").trim();
+      if (!base || !key) {
+        el.innerHTML = "<p class='err'>ยังไม่ตั้งค่า Supabase ใน config.js<br/><small>supabaseUrl และ supabaseAnonKey</small></p>";
+        return;
+      }
+      const url =
+        base +
+        "/rest/v1/farm_public_pages?short_code=eq." +
+        encodeURIComponent(code) +
+        "&is_public=eq.true&select=mode,payload,identity_verified,payload_locked";
+      let res;
+      try {
+        res = await fetch(url, {
+          headers: {
+            apikey: key,
+            Authorization: "Bearer " + key,
+            Accept: "application/json",
+          },
+        });
+      } catch (e) {
+        el.innerHTML = "<p class='err'>โหลดข้อมูลไม่สำเร็จ</p>";
+        return;
+      }
+      if (!res.ok) {
+        el.innerHTML = "<p class='err'>เซิร์ฟเวอร์ปฏิเสธคำขอ (" + res.status + ")</p>";
+        return;
+      }
+      const rows = await res.json();
+      if (!Array.isArray(rows) || rows.length === 0) {
+        el.innerHTML = "<p class='err'>ไม่พบหน้านี้หรือยังไม่เผยแพร่</p>";
+        return;
+      }
+      const row = rows[0];
+      const mode = (row.mode || "story").toLowerCase();
+      const payloadLocked = row.payload_locked === true;
+      const p = row.payload || {};
+      const idVerified = row.identity_verified === true;
+      const brand = (p.brand_name || "").trim();
+      const tag = (p.tagline || "").trim();
+      const farmer = p.farmer_display || "เกษตรกร";
+      const prov = p.province || "—";
+      const showDist = p.consent_show_district === true;
+      const dist = (p.district_full || "").trim();
+      const loc = showDist && dist ? prov + " · " + dist : prov;
+      const story = p.story_text || "";
+      const crop = p.crop_label_th || "พืช";
+      const price = (p.product_price_baht || "").trim();
+      const lineId = (p.line_contact_id || "").trim();
+      const batch = p.this_batch && typeof p.this_batch === "object" ? p.this_batch : null;
+
+      const title = mode === "brand" && brand ? brand : "เรื่องราวจากไร่";
+      let html = "<div class='hero'><div style='font-size:2rem'>🌾</div>";
+      html += "<h1>" + escapeHtml(title) + "</h1>";
+      if (mode === "brand" && tag) html += "<p>" + escapeHtml(tag) + "</p>";
+      html += "<span class='badge'>บันทึกจากแอปไร่ดี</span>";
+      if (idVerified) html += " <span class='badge'>ยืนยันตัวตนแล้ว</span>";
+      if (mode === "story" && payloadLocked)
+        html += " <span class='badge'>เนื้อหาคงที่หลังเผยแพร่</span>";
+      else if (mode === "brand")
+        html += " <span class='badge'>แบรนด์ — แก้ไขได้</span>";
+      html += "</div>";
+
+      html += "<div class='card'><strong>" + escapeHtml(farmer) + "</strong><br/>" + escapeHtml(loc);
+      html += "<p style='margin-top:12px'>" + escapeHtml(story).replace(/\n/g, "<br/>") + "</p></div>";
+
+      if (batch && Object.keys(batch).length) {
+        html += "<div class='card'><strong>ชุดนี้จากแปลง</strong>";
+        const plant = batch.plant_date_label || "—";
+        const fc = batch.fertilizer_applications_count;
+        const fert = typeof fc === "number" ? "ใส่ปุ๋ย (บันทึก GAP) " + fc + " ครั้ง" : "ใส่ปุ๋ย: —";
+        let extra = "";
+        if (batch.pre_harvest_interval_days)
+          extra += "<div class='batch-line'>✅ ช่วงงดสารก่อนเก็บเกี่ยว (จากบันทึก): " + escapeHtml(String(batch.pre_harvest_interval_days)) + " วัน</div>";
+        else if (batch.has_chemical_gap_records)
+          extra += "<div class='batch-line'>☀️ มีบันทึกการใช้สารเคมีตาม GAP</div>";
+        const harv = batch.harvest_date_label || "—";
+        const qty = batch.harvest_quantity_kg;
+        html += "<div class='batch-line'>🌱 ปลูก: " + escapeHtml(plant) + "</div>";
+        html += "<div class='batch-line'>🌿 ดูแล: " + escapeHtml(fert) + "</div>";
+        html += extra;
+        html += "<div class='batch-line'>🌾 เก็บเกี่ยว: " + escapeHtml(harv) + "</div>";
+        if (qty != null && String(qty).length)
+          html += "<div class='batch-line'>📦 ปริมาณ (บันทึก): " + escapeHtml(String(qty)) + " กก.</div>";
+        html += "</div>";
+      }
+
+      if (mode === "brand" && price) {
+        html += "<div class='card'><strong>" + escapeHtml(crop) + "</strong><br/>" + escapeHtml(price) + " บาท/กก.</div>";
+      }
+      if (mode === "brand" && lineId) {
+        const id = lineId.startsWith("@") ? lineId.slice(1) : lineId;
+        html +=
+          "<a class='line-btn' href='https://line.me/ti/p/~" +
+          encodeURIComponent(id) +
+          "' target='_blank' rel='noopener'>สั่งซื้อผ่าน LINE</a>";
+      }
+
+      html +=
+        "<p class='foot'>ข้อมูลโภชนาการ (ถ้ามี) เป็นค่าอ้างอิงเบื้องต้น ไม่ใช่ฉลากตามกฎหมาย — เปิดในแอปไร่ดีเพื่อดูรายละเอียดเพิ่มเติม</p>";
+      el.innerHTML = html;
+    }
+
+    function loadConfigThenRun() {
+      var r = (window.RAIDEE_SITE_ROOT || "").replace(/\/$/, "");
+      var candidates = [];
+      if (r) candidates.push(r + "/landing/config.js");
+      candidates.push("/config.js");
+      candidates.push("../config.js");
+      var i = 0;
+      function next() {
+        if (i >= candidates.length) {
+          run();
+          return;
+        }
+        var s = document.createElement("script");
+        s.src = candidates[i++];
+        s.onload = function () {
+          run();
+        };
+        s.onerror = function () {
+          next();
+        };
+        document.head.appendChild(s);
+      }
+      next();
+    }
+    loadConfigThenRun();
+  </script>
+</body>
+</html>
