@@ -147,23 +147,27 @@
 
     function loadConfigThenRun() {
       var r = (window.RAIDEE_SITE_ROOT || "").replace(/\/$/, "");
-      var s = document.createElement("script");
-      s.src = r + "/landing/config.js";
-      s.onload = function () {
-        run();
-      };
-      s.onerror = function () {
-        var f = document.createElement("script");
-        f.src = "../config.js";
-        f.onload = function () {
+      var candidates = [];
+      if (r) candidates.push(r + "/landing/config.js");
+      candidates.push("/config.js");
+      candidates.push("../config.js");
+      var i = 0;
+      function next() {
+        if (i >= candidates.length) {
+          run();
+          return;
+        }
+        var s = document.createElement("script");
+        s.src = candidates[i++];
+        s.onload = function () {
           run();
         };
-        f.onerror = function () {
-          run();
+        s.onerror = function () {
+          next();
         };
-        document.head.appendChild(f);
-      };
-      document.head.appendChild(s);
+        document.head.appendChild(s);
+      }
+      next();
     }
     loadConfigThenRun();
   </script>
