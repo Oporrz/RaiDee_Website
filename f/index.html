@@ -57,7 +57,7 @@
         base +
         "/rest/v1/farm_public_pages?short_code=eq." +
         encodeURIComponent(code) +
-        "&is_public=eq.true&select=mode,payload,identity_verified";
+        "&is_public=eq.true&select=mode,payload,identity_verified,payload_locked";
       let res;
       try {
         res = await fetch(url, {
@@ -82,6 +82,7 @@
       }
       const row = rows[0];
       const mode = (row.mode || "story").toLowerCase();
+      const payloadLocked = row.payload_locked === true;
       const p = row.payload || {};
       const idVerified = row.identity_verified === true;
       const brand = (p.brand_name || "").trim();
@@ -103,6 +104,10 @@
       if (mode === "brand" && tag) html += "<p>" + escapeHtml(tag) + "</p>";
       html += "<span class='badge'>บันทึกจากแอปไร่ดี</span>";
       if (idVerified) html += " <span class='badge'>ยืนยันตัวตนแล้ว</span>";
+      if (mode === "story" && payloadLocked)
+        html += " <span class='badge'>เนื้อหาคงที่หลังเผยแพร่</span>";
+      else if (mode === "brand")
+        html += " <span class='badge'>แบรนด์ — แก้ไขได้</span>";
       html += "</div>";
 
       html += "<div class='card'><strong>" + escapeHtml(farmer) + "</strong><br/>" + escapeHtml(loc);
