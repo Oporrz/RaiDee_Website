@@ -299,14 +299,15 @@ a {
 }
 
 .hero-slide--home {
+  /* แนวตั้ง ~40% แทน center — โผล่หัว/หน้า (cover เดิมตัดด้านบน) */
   background: var(--cream-page) url('assets/images/illustration_1.jpg')
-    76% center / cover no-repeat;
+    76% 40% / cover no-repeat;
 }
 
 /* สไลด์ตลาด — รูปเต็มพื้นที่แบบสไลด์ 1 + ถมขาวซ้ายผ่าน .hero-overlay */
 .hero-slide--market {
   background: var(--cream-page) url('assets/images/illustration_4.jpg')
-    72% center / cover no-repeat;
+    72% 42% / cover no-repeat;
 }
 
 .hero-carousel-btn {
@@ -1313,11 +1314,11 @@ a {
   }
 
   .hero-slide--home {
-    background-position: 72% center;
+    background-position: 72% 38%;
   }
 
   .hero-slide--market {
-    background-position: 68% center;
+    background-position: 68% 40%;
   }
 
   .hero-mascots {
